@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# rsync transfer
+#
+# https://github.com/proudsourcing/proudsourcing-rsyncbackup
+
+/usr/bin/rsync -avrRh --delete --stats --progress <%= @backup_source_host %>:<%= @backup_source_dir %> <%= @backup_target_dir %> > /var/log/ps_rsyncbackup.log
+
+<% if @backup_mail == true -%>
+mail -s "Backup <%= @backup_name %>" <%= @backup_mail_address %> < /var/log/ps_rsyncbackup.log
+<% end -%>
+

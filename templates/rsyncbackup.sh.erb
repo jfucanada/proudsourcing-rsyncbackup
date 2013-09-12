@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# rsync backup
+#
+# https://github.com/proudsourcing/proudsourcing-rsyncbackup
+
+NAME=<%= @backup_name %> 
+SRC_DIR=<%= @backup_source_dir %>
+BK_DIR=<%= @backup_target_dir %> 
+ROTATE=<%= @backup_rotate %> 
+
+cleanup() 
+{	
+	find "${BK_DIR}" -maxdepth 1 -type f -name "${NAME}*.tar.gz" -mtime +${ROTATE} -print0 | xargs -0 -r rm -f	
+}
+cleanup
+
+tar -cvzf ${BK_DIR}${NAME}_`date +%Y%m%d-%H%M%S`.tar.gz ${SRC_DIR}
+
+
