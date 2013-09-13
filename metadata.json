@@ -1,0 +1,26 @@
+{
+  "description": "Puppet module to backup files with rsync.",
+  "checksums": {
+    "manifests/params.pp": "f47901389c125ce7577676c1d1688f55",
+    "manifests/backup.pp": "1aada5c1eeafe6ebcde2976e5d123676",
+    "README.md": "1558520dc6eeafc904ddb57dbfebe490",
+    "templates/rsyncbackup.sh.erb": "bbcde99e9634d8b5d4e16e8e30c7a16e",
+    "manifests/transfer.pp": "83ea4fd8a64aad7062bafdaeb788b241",
+    "templates/rsynctransfer.sh.erb": "032bc465120b1f670bc8d630e77fd20b",
+    "Modulefile": "92412a8b087b40c3764f180d0ee7a4bc",
+    "manifests/init.pp": "070c26a39ce83d9a1cbee53a54acb7af"
+  },
+  "project_page": "UNKNOWN",
+  "summary": "UNKNOWN",
+  "source": "UNKNOWN",
+  "version": "1.0.0",
+  "types": [
+
+  ],
+  "author": "Proud Sourcing GmbH",
+  "dependencies": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "name": "proudsourcing-rsync"
+}
