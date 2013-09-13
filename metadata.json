@@ -3,17 +3,17 @@
   "checksums": {
     "manifests/params.pp": "f47901389c125ce7577676c1d1688f55",
     "manifests/backup.pp": "1aada5c1eeafe6ebcde2976e5d123676",
-    "README.md": "1558520dc6eeafc904ddb57dbfebe490",
+    "README.md": "9796763a5919e212aabf3cdb995fbd6d",
     "templates/rsyncbackup.sh.erb": "bbcde99e9634d8b5d4e16e8e30c7a16e",
-    "manifests/transfer.pp": "83ea4fd8a64aad7062bafdaeb788b241",
-    "templates/rsynctransfer.sh.erb": "032bc465120b1f670bc8d630e77fd20b",
-    "Modulefile": "92412a8b087b40c3764f180d0ee7a4bc",
+    "manifests/transfer.pp": "19f88a9e046984123649febd5611165f",
+    "templates/rsynctransfer.sh.erb": "ed951804d020e72e687a3ef8f6bd638b",
+    "Modulefile": "904c246cdd696f20849a9be1069bfc7a",
     "manifests/init.pp": "070c26a39ce83d9a1cbee53a54acb7af"
   },
   "project_page": "UNKNOWN",
   "summary": "UNKNOWN",
   "source": "UNKNOWN",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "types": [
 
   ],

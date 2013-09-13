@@ -51,6 +51,7 @@ Default values:
     $backup_source_dir		= $ps_rsyncbackup::params::backup_source_dir,	# transfer source directory
     $backup_target_dir		= $ps_rsyncbackup::params::backup_target_dir,	# transfer target directory
     
+    $backup_exclude_dir		= ""				# exclude directories (array)
     $backup_source_host		= "",				# source host ip/name
     $backup_time_hour		= 3,				# cronjob hour
     $backup_time_min		= 0,				# cronjob minute
@@ -62,6 +63,12 @@ Default values:
     $backup_comment			= "",				# only a comment for you
     $backup_mail			= true,				# send logs per mail
     $backup_mail_address	= ""				# mail-adress for sending logs
+
+
+## Changelog
+
+	1.0.0	13.09.2013		Release
+	1.1.0	13.09.2013		add backup_exlude_dir array for transfers
 
 
 ## License
