@@ -4,7 +4,7 @@
 #
 # https://github.com/proudsourcing/proudsourcing-rsyncbackup
 
-/usr/bin/rsync -avrRh --delete --stats --progress <%= @backup_source_host %>:<%= @backup_source_dir %> <% @backup_exclude_dir.each do |val| -%> --exclude='<%= val %>'<% end -%> <%= @backup_target_dir %> > /var/log/ps_rsyncbackup.log
+/usr/bin/rsync -avrRh --delete --stats --progress <%= @backup_source_host %>:<%= @backup_source_dir %><% if @backup_exclude_dir != "" -%> --exclude='<%= @backup_exclude_dir %>'<% end -%> <%= @backup_target_dir %> > /var/log/ps_rsyncbackup.log
 
 <% if @backup_mail == true -%>
 tr -d '\15\32' < /var/log/ps_rsyncbackup.log > /var/log/ps_rsyncbackup.txt
