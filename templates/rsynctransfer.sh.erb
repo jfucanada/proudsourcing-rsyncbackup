@@ -7,6 +7,7 @@
 /usr/bin/rsync -avrRh --delete --stats --progress <%= @backup_source_host %>:<%= @backup_source_dir %> <% @backup_exclude_dir.each do |val| -%> --exclude='<%= val %>'<% end -%> <%= @backup_target_dir %> > /var/log/ps_rsyncbackup.log
 
 <% if @backup_mail == true -%>
-mail -s "Backup <%= @backup_name %>" <%= @backup_mail_address %> < /var/log/ps_rsyncbackup.log
+tr -d '\15\32' < /var/log/ps_rsyncbackup.log > /var/log/ps_rsyncbackup.txt
+mail -s "Backup <%= @backup_name %>" <%= @backup_mail_address %> < /var/log/ps_rsyncbackup.txt
 <% end -%>
 

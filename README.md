@@ -69,6 +69,7 @@ Default values:
 
 	1.0.0	13.09.2013		Release
 	1.1.0	13.09.2013		add backup_exlude_dir array for transfers
+	1.1.1	28.09.2014		format logfile for mail (line endings)
 
 
 ## License
