@@ -15,6 +15,4 @@ cleanup()
 }
 cleanup
 
-tar -cvzf ${BK_DIR}${NAME}_`date +%Y%m%d-%H%M%S`.tar.gz ${SRC_DIR}
-
-
+tar -cvzf ${BK_DIR}${NAME}_`date +%Y%m%d-%H%M%S`.tar.gz ${SRC_DIR} <% if @backup_exclude_dir != "" -%> <%  @backup_exclude_dir.each do |val| -%>--exclude='<%= val %>' <% end -%><% end -%>

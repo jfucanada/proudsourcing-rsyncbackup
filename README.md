@@ -20,6 +20,7 @@ Puppet module to create backups using tar and transfer backups using rsync.
     	backup_time_min		=> 0,
     }
     
+    
 Default values:
 
     $backup_source_dir		= $ps_rsyncbackup::params::backup_source_dir,	# backup source directory
@@ -33,7 +34,12 @@ Default values:
     $backup_group			= "root",			# group file/cron
     $backup_ensure			= "present",		# create or remove
     $backup_name			= $name,			# name of backup
-    $backup_comment			= "",				# only a comment for you
+
+
+Optional values:
+
+    $backup_exclude_dir		= ["dir1", "dir2"],			# exclude directories (array)
+    $backup_comment			= "my comment",				# only a comment for you  
 
 
 ### Transfer backups
@@ -51,7 +57,6 @@ Default values:
     $backup_source_dir		= $ps_rsyncbackup::params::backup_source_dir,	# transfer source directory
     $backup_target_dir		= $ps_rsyncbackup::params::backup_target_dir,	# transfer target directory
     
-    $backup_exclude_dir		= ""				# exclude directories (array)
     $backup_source_host		= "",				# source host ip/name
     $backup_time_hour		= 3,				# cronjob hour
     $backup_time_min		= 0,				# cronjob minute
@@ -60,16 +65,22 @@ Default values:
     $backup_group			= "root",			# group file/cron
     $backup_ensure			= "present",		# create or remove
     $backup_name			= $name,			# name of transfer
-    $backup_comment			= "",				# only a comment for you
-    $backup_mail			= true,				# send logs per mail
-    $backup_mail_address	= ""				# mail-adress for sending logs
+    $backup_mail			= false,			# send logs per mail
 
+
+Optional values:
+
+    $backup_exclude_dir		= ["dir1", "dir2"],			# exclude directories (array)
+    $backup_comment			= "my comment",				# only a comment for you  
+    $backup_mail_address	= "my@address.tld"			# mail-adress for sending logs (if backup_mail = true)
+    
 
 ## Changelog
 
-	1.0.0	13.09.2013		Release
-	1.1.0	13.09.2013		add backup_exlude_dir array for transfers
-	1.1.1	28.09.2014		format logfile for mail (line endings)
+	1.0.0	2013-09-13		Release
+	1.1.0	2013-09-13		add backup_exlude_dir array for transfers
+	1.1.1	2014-09-28		format logfile for mail (line endings)
+	1.2.0	2014-12-01		add backup_exclude_dir array for backups
 
 
 ## License
@@ -90,5 +101,5 @@ Default values:
 
 ## Copyright
 
-	Proud Sourcing GmbH 2013
+	Proud Sourcing GmbH 2014
 	www.proudsourcing.de / www.proudcommerce.com

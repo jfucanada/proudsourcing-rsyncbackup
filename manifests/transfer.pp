@@ -2,6 +2,7 @@ define ps_rsyncbackup::transfer (
 
     $backup_source_dir		= $ps_rsyncbackup::params::backup_source_dir,
     $backup_target_dir		= $ps_rsyncbackup::params::backup_target_dir,
+    $backup_exclude_dir		= "",
     $backup_source_host		= "",
     $backup_time_hour		= 3,
     $backup_time_min		= 0,
