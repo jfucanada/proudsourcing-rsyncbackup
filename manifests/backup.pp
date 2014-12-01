@@ -2,7 +2,8 @@ define ps_rsyncbackup::backup (
 
     $backup_source_dir		= $ps_rsyncbackup::params::backup_source_dir,
     $backup_target_dir		= $ps_rsyncbackup::params::backup_target_dir,
-    $backup_rotate			= 7,
+    $backup_exclude_dir		= "",
+    $backup_rotate		= 7,
     $backup_time_hour		= 3,
     $backup_time_min		= 0,
     $backup_time_day		= "*",
