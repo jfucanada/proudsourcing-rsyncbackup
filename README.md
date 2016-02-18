@@ -81,6 +81,7 @@ Optional values:
 	1.1.0	2013-09-13		add backup_exlude_dir array for transfers
 	1.1.1	2014-09-28		format logfile for mail (line endings)
 	1.2.0	2014-12-01		add backup_exclude_dir array for backups
+	1.2.1	2016-02-18		check if rotate = 0
 
 
 ## License
