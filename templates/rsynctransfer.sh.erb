@@ -9,8 +9,8 @@ ROTATE=<%= @backup_rotate %>
 
 <% if @backup_deleteold == false -%>
 if [ "$ROTATE" = 0 ]
-	then find "${BK_DIR}" -maxdepth 1 -type f -name "*.tar.gz" -print0 | xargs -0 -r rm -f
-	else find "${BK_DIR}" -maxdepth 1 -type f -name "*.tar.gz" -mtime +${ROTATE} -print0 | xargs -0 -r rm -f
+	then find "${BK_DIR}" -maxdepth 5 -type f -print0 | xargs -0 -r rm -f
+	else find "${BK_DIR}" -maxdepth 5 -type f -mtime -${ROTATE} -print0 | xargs -0 -r rm -f
 fi
 <% end -%>
 
