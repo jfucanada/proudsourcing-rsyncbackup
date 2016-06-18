@@ -1,26 +1,14 @@
 {
-  "description": "Puppet module to backup files with rsync.",
-  "checksums": {
-    "manifests/params.pp": "f47901389c125ce7577676c1d1688f55",
-    "manifests/backup.pp": "1aada5c1eeafe6ebcde2976e5d123676",
-    "README.md": "9796763a5919e212aabf3cdb995fbd6d",
-    "templates/rsyncbackup.sh.erb": "bbcde99e9634d8b5d4e16e8e30c7a16e",
-    "manifests/transfer.pp": "19f88a9e046984123649febd5611165f",
-    "templates/rsynctransfer.sh.erb": "ed951804d020e72e687a3ef8f6bd638b",
-    "Modulefile": "904c246cdd696f20849a9be1069bfc7a",
-    "manifests/init.pp": "070c26a39ce83d9a1cbee53a54acb7af"
-  },
-  "project_page": "UNKNOWN",
-  "summary": "UNKNOWN",
-  "source": "UNKNOWN",
-  "version": "1.2.1",
-  "types": [
-
-  ],
-  "author": "Proud Sourcing GmbH",
+  "name": "proudsourcing-rsyncbackup",
+  "version": "1.3.0",
+  "author": "proudsourcing",
+  "summary": "Puppet module to create backups using tar and transfer backups using rsync.",
+  "license": "GNU General Public License",
+  "source": "https://github.com/proudsourcing/proudsourcing-rsyncbackup",
+  "project_page": "https://github.com/proudsourcing/proudsourcing-rsyncbackup",
+  "issues_url": "https://github.com/proudsourcing/proudsourcing-rsyncbackup/issues",
   "dependencies": [
-
-  ],
-  "license": "Apache License, Version 2.0",
-  "name": "proudsourcing-rsync"
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
 }
+
