@@ -26,7 +26,7 @@ Default values:
     $backup_source_dir		= $ps_rsyncbackup::params::backup_source_dir,	# backup source directory
     $backup_target_dir		= $ps_rsyncbackup::params::backup_target_dir,	# backup target directory
     
-    $backup_rotate			= 7,				# number ob backups to keep
+    $backup_rotate			= 7,				# number of backups to keep
     $backup_time_hour		= 3,				# cronjob hour
     $backup_time_min		= 0,				# cronjob minute
     $backup_time_day		= "*",				# cronjob weekday
@@ -61,11 +61,13 @@ Default values:
     $backup_time_hour		= 3,				# cronjob hour
     $backup_time_min		= 0,				# cronjob minute
     $backup_time_day		= "*",				# cronjob weekday
+    $backup_deleteold		= true				# delete old files (no longer exists on source)
+    $backup_rotate			= 7,				# number of backups to keep (important when $backup_deleteold = false)
     $backup_user			= "root",			# user file/cron
     $backup_group			= "root",			# group file/cron
     $backup_ensure			= "present",		# create or remove
     $backup_name			= $name,			# name of transfer
-    $backup_mail			= false,			# send logs per mail
+    $backup_mail			= false,			# send logs due mail
 
 
 Optional values:
@@ -82,6 +84,7 @@ Optional values:
 	1.1.1	2014-09-28		format logfile for mail (line endings)
 	1.2.0	2014-12-01		add backup_exclude_dir array for backups
 	1.2.1	2016-02-18		check if rotate = 0
+	1.3.0	2016-06-18		optional delete old files, rotation time for backup target files
 
 
 ## License
@@ -102,5 +105,5 @@ Optional values:
 
 ## Copyright
 
-	Proud Sourcing GmbH 2014
+	Proud Sourcing GmbH 2016
 	www.proudsourcing.de / www.proudcommerce.com

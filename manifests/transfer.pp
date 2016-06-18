@@ -7,13 +7,15 @@ define ps_rsyncbackup::transfer (
     $backup_time_hour		= 3,
     $backup_time_min		= 0,
     $backup_time_day		= "*",
+    $backup_deleteold		= true,
     $backup_user			= "root",
     $backup_group			= "root",
     $backup_ensure			= "present",
     $backup_name			= $name,
     $backup_comment			= "",
     $backup_mail			= true,
-    $backup_mail_address	= ""
+    $backup_mail_address	= "",
+    $backup_rotate			= 7,
 
 ) {
 
@@ -35,6 +37,5 @@ define ps_rsyncbackup::transfer (
     	weekday	=> $backup_time_day,
     	require => File["${backup_name}.sh"],
 	}
-
 
 }

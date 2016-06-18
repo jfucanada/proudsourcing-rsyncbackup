@@ -4,7 +4,18 @@
 #
 # https://github.com/proudsourcing/proudsourcing-rsyncbackup
 
-/usr/bin/rsync -avrRh --delete --stats --progress <%= @backup_source_host %>:<%= @backup_source_dir %><% if @backup_exclude_dir != "" -%> <%  @backup_exclude_dir.each do |val| -%>--exclude='<%= val %>' <% end -%><% end -%> <%= @backup_target_dir %> > /var/log/ps_rsyncbackup.log
+BK_DIR=<%= @backup_target_dir %> 
+ROTATE=<%= @backup_rotate %> 
+
+cleanup()
+{       if [ ${ROTATE} == 0 ]
+           then find "${BK_DIR}" -maxdepth 1 -type f -name "*.tar.gz" -print0 | xargs -0 -r rm -f
+           else find "${BK_DIR}" -maxdepth 1 -type f -name "*.tar.gz" -mtime +${ROTATE} -print0 | xargs -0 -r rm -f
+	fi
+}
+cleanup
+
+/usr/bin/rsync -avrRh <% if @backup_deleteold == true -%>--delete <% end -%>--stats --progress <%= @backup_source_host %>:<%= @backup_source_dir %><% if @backup_exclude_dir != "" -%> <%  @backup_exclude_dir.each do |val| -%>--exclude='<%= val %>' <% end -%><% end -%> <%= @backup_target_dir %> > /var/log/ps_rsyncbackup.log
 
 <% if @backup_mail == true -%>
 tr -d '\15\32' < /var/log/ps_rsyncbackup.log > /var/log/ps_rsyncbackup.txt
