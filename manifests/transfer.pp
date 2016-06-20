@@ -21,7 +21,8 @@ define ps_rsyncbackup::transfer (
 
 	exec { "Create ${backup_target_dir}":
 		command => 'mkdir -p ${backup_target_dir}',
-		creates => '${backup_target_dir}'
+		creates => '${backup_target_dir}',
+		path => ['/usr/bin', '/usr/sbin'],
 	}
 	
 	file { "${backup_target_dir}":
