@@ -8,17 +8,5 @@ class ps_rsyncbackup (
 	package { 'rsync':
 		ensure => "present"
 	}
-	
-	file { "${backup_source_dir}":
-		ensure => 'directory',
-		mode => 750,
-		owner => 'root',
-	}
-	
-	file { "${backup_target_dir}":
-		ensure => 'directory',
-		mode => 750,
-		owner => 'root',
-	}
 
 }
