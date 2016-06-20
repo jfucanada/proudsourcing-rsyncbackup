@@ -19,6 +19,18 @@ define ps_rsyncbackup::transfer (
 
 ) {
 
+	exec { "Create ${backup_target_dir}":
+		command => 'mkdir -p ${backup_target_dir}',
+		creates => '${backup_target_dir}'
+	}
+	
+	file { "${backup_target_dir}":
+		ensure => 'directory',
+		mode => 750,
+		owner => 'root',
+		recurse => true,
+	}
+	
 	file { "${backup_name}.sh":
     	ensure  => $backup_ensure,
     	path    => "/usr/local/sbin/${backup_name}.sh",

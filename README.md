@@ -85,6 +85,7 @@ Optional values:
 	1.2.0	2014-12-01		add backup_exclude_dir array for backups
 	1.2.1	2016-02-18		check if rotate = 0
 	1.3.0	2016-06-18		optional delete old files, rotation time for backup target files
+	1.3.1	2016-06-20		fix directory creation
 
 
 ## License
