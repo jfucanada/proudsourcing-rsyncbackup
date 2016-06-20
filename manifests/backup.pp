@@ -25,7 +25,6 @@ define ps_rsyncbackup::backup (
 		ensure => 'directory',
 		mode => 750,
 		owner => 'root',
-		recurse => true,
 	}
 
 	file { "${backup_name}.sh":
