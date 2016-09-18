@@ -1,0 +1,14 @@
+{
+  "name": "proudsourcing-rsyncbackup",
+  "version": "1.3.0",
+  "author": "proudsourcing",
+  "summary": "Puppet module to create backups using tar and transfer backups using rsync.",
+  "license": "GNU General Public License",
+  "source": "https://github.com/proudsourcing/proudsourcing-rsyncbackup",
+  "project_page": "https://github.com/proudsourcing/proudsourcing-rsyncbackup",
+  "issues_url": "https://github.com/proudsourcing/proudsourcing-rsyncbackup/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

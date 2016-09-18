@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# rsync backup
+#
+# https://github.com/proudsourcing/proudsourcing-rsyncbackup
+
+NAME=<%= @backup_name %> 
+SRC_DIR=<%= @backup_source_dir %>
+BK_DIR=<%= @backup_target_dir %> 
+ROTATE=<%= @backup_rotate %> 
+
+if [ "$ROTATE" = 0 ]
+	then find "${BK_DIR}" -maxdepth 5 -type f -name "${NAME}*.tar.gz" -print0 | xargs -0 -r rm -f
+	else find "${BK_DIR}" -maxdepth 5 -type f -name "${NAME}*.tar.gz" -mtime +${ROTATE} -print0 | xargs -0 -r rm -f
+fi
+
+tar -cvzf ${BK_DIR}${NAME}_`date +%Y%m%d-%H%M%S`.tar.gz ${SRC_DIR} <% if @backup_exclude_dir != "" -%> <%  @backup_exclude_dir.each do |val| -%>--exclude='<%= val %>' <% end -%><% end -%>
